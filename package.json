@@ -1,0 +1,24 @@
+{
+  "name": "symetra-project",
+  "version": "1.0.0",
+  "description": "This is a sample e-comerce store front.",
+  "main": "app.ts",
+  "scripts": {
+    "start": "node ./dist/app.js",
+    "build": "tsc",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elyfialkoff/symetra-project.git"
+  },
+  "author": "ely f",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elyfialkoff/symetra-project/issues"
+  },
+  "homepage": "https://github.com/elyfialkoff/symetra-project#readme",
+  "dependencies": {
+    "typescript": "^5.1.6"
+  }
+}
