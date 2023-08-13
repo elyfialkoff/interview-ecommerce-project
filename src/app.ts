@@ -1,5 +1,5 @@
 import express  from 'express';
-import { getCustomer } from './handler/get-customer.handler';
+import { login } from './handler/login';
 import { transaction } from './handler/transaction.handler';
 import { getDiscount } from './handler/get-discount.handler';
 import { getReport } from './handler/get-report.handler';
@@ -11,8 +11,8 @@ const port = 8080; // default port to listen
 app.use(express.json())
 
 // Defines the available routes for  Customers
-app.post("/login/customer/:customerId", async (req,  res) => {
-    res.send(await getCustomer({customerId: req.params.customerId}));
+app.post("/login/:customerId", async (req,  res) => {
+    res.send(await login({customerId: req.params.customerId}));
     // return a Discount
 });
 
