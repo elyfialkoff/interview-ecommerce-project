@@ -10,8 +10,7 @@ export async function getDiscount(input: GetDiscountInput): Promise<Discount> {
     const customer: Customer = getCustomer(input.customerId);
     
     const discount: Discount = {
-        isDiscount: customer.hasDiscount,
-        discountCode: customer.discountCode ?? ""
+        code: customer!.discount!.code ?? ""
     };
     return discount;
 }

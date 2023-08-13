@@ -1,6 +1,5 @@
-interface DiscountData {
+interface Discount {
     nTransactions: number;
     discountCode: string;
 }
 
-export let DISCOUNT: DiscountData;

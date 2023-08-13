@@ -1,5 +1,6 @@
+import { Discount } from './discount.interface';
+
 export interface Customer {
     id: string;
-    hasDiscount: boolean;
-    discountCode?: string
+    discount?: Discount
 }
