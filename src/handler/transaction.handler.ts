@@ -1,6 +1,7 @@
-import { TRANSACTIONS, TRANSACTIONS_WITH_DISCOUNT, Transaction } from "../data/transaction.data";
+import { TRANSACTIONS, TRANSACTIONS_WITH_DISCOUNT } from "../data/transaction.data";
 import { CUSTOMERS, getCustomer } from "../data/customer.data";
 import { Customer } from "../interface/customer.interface";
+import { Transaction } from "../interface/transaction.interface";
 
 interface TransactionInput {
     customerId: string;
@@ -11,7 +12,7 @@ interface TransactionInput {
 export async function transaction(input: TransactionInput): Promise<any> {
     // Get Customer and validate discount code
     const customer: Customer = getCustomer(input.customerId);
-    if (input.discountCode && customer.discountCode != input.discountCode) {
+    if (input.discountCode && customer.discount && customer.discount.code != input.discountCode) {
         throw new Error(`Discount code is not valid.`);
     };
 
@@ -29,7 +30,6 @@ export async function transaction(input: TransactionInput): Promise<any> {
         // Remove discount code from customer record
         CUSTOMERS.set(input.customerId, {
             id: input.customerId,
-            hasDiscount: false 
         })
     }
 

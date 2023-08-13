@@ -3,7 +3,7 @@ import { login } from './handler/login';
 import { transaction } from './handler/transaction.handler';
 import { getDiscount } from './handler/get-discount.handler';
 import { getReport } from './handler/get-report.handler';
-import { createDiscount } from './handler/create-discount.handler';
+import { setDiscount } from './handler/set-discount.handler';
 
 const app = express();
 const port = 8080; // default port to listen
@@ -33,8 +33,8 @@ app.get("/report",  async (req, res) => {
 });
 
 app.post("/discount",  async (req, res) => {
-    //  parameters: n
-    res.send(await createDiscount({nTransactions: req.body.n}));
+    //  parameters: n: string, code: string
+    res.send(await setDiscount({numberOfLogins: req.body.n, discountCode: req.body.code}));
 });
 
 // start the Express server
