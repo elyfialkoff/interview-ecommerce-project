@@ -1,6 +1,3 @@
-interface Customer {
-    id: string;
-    discountCode?: string;
-}
+import { Customer } from "../interface/customer.interface";
 
-export const CUSTOMERS: Customer[] = []
+export const CUSTOMERS: Map<string, Customer> = new Map<string, Customer>();
