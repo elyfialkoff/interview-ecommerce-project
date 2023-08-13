@@ -16,7 +16,7 @@ export async function login(input: GetCustomerInput): Promise<Customer> {
         id: input.customerId
     };
 
-    if (LOGIN_COUNT === NEXT_DISCOUNT.numberOfLogins) {
+    if (LOGIN_COUNT % NEXT_DISCOUNT.numberOfLogins === 0) {
         customer['discount'] = {
             code: NEXT_DISCOUNT.discountCode
         };
