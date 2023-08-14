@@ -25,11 +25,7 @@ body: {
     code: string;
 }
 
-POST /discount
-body: {
-    n: number;
-    code: string;
-}
+GET /report
 
 
 Sample Usage
