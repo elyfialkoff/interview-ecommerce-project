@@ -1,4 +1,4 @@
 export interface Report {
-    numberOfTransactions: number;
-    numberOfDiscountsGiven: number;
+    transactionCount: number;
+    transactionWithDiscountCount: number;
 }

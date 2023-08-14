@@ -1,7 +1,7 @@
 import express  from 'express';
 import { login } from './handler/login';
 import { transaction } from './handler/transaction.handler';
-import { getReport } from './handler/get-report.handler';
+import { getReport } from './handler/report.handler';
 import { setDiscount, getDiscount } from './handler/discount.handler';
 
 // const util = require('util');
