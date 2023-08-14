@@ -19,6 +19,7 @@ export async function login(input: GetCustomerInput): Promise<Customer> {
     if (LOGIN_COUNT % NEXT_DISCOUNT.numberOfLogins === 0) {
         console.log(`Issuing a discount to ${input.customerId}.`)
         customer['discount'] = {
+            isActive: true,
             code: NEXT_DISCOUNT.discountCode
         };
     };

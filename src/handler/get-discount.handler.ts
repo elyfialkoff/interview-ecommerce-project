@@ -10,6 +10,7 @@ export async function getDiscount(input: GetDiscountInput): Promise<Discount> {
     const customer: Customer = getCustomer(input.customerId);
     
     const discount: Discount = {
+        isActive: customer!.discount ? true : false,
         code: customer!.discount!.code ?? ""
     };
     return discount;
