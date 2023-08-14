@@ -23,5 +23,13 @@ export async function setDiscount(input: SetDiscountInput): Promise<Message> {
 }
 
 export async function getDiscount(): Promise<Discount> {
-    return DISCOUNT;
+    const discount: Discount = {
+        isActive: DISCOUNT.isActive
+    };
+
+    if (DISCOUNT.isActive) {
+        discount.discountCode = DISCOUNT.discountCode
+    };
+
+    return discount;
 }
