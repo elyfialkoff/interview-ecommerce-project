@@ -1,5 +1,5 @@
 import express  from 'express';
-import { login } from './handler/login';
+import { login } from './handler/login.handler';
 import { transaction } from './handler/transaction.handler';
 import { getReport } from './handler/report.handler';
 import { setDiscount, getDiscount } from './handler/discount.handler';
