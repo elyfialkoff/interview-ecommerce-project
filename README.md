@@ -1,21 +1,21 @@
 # symetra-project
 
 #### Install Packaged
-npm i
+`npm i`
 
 #### Build
-npm run build
+`npm run build`
 
 #### Start Server
-npm run start
+`npm run start`
 
 #### Endpoints
 ##### Customer Endpoints
-- POST /login/{customerId}
+- `POST /login/{customerId}`
 
-- GET /discount
+- `GET /discount`
 
-- POST /transaction
+- `POST /transaction`
 body: {
     customerId: string;
     items: string[];
@@ -23,13 +23,13 @@ body: {
 }
 
 ##### Admin Endpoints
-- POST /discount
+- `POST /discount`
 body: {
     n: number;
     code: string;
 }
 
-- GET /report
+- `GET /report`
 
 
 #### Sample Usage
