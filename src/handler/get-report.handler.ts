@@ -1,7 +1,7 @@
 import { CUSTOMERS } from "../data/customer.data";
 import { TRANSACTIONS } from "../data/transaction.data";
 import { Customer } from "../interface/customer.interface";
-import { Report } from "../interface/report.interface"
+import { Report } from "../interface/report.interface";
 import { Transaction } from "../interface/transaction.interface";
 
 export async function getReport(): Promise<Report> {

@@ -5,6 +5,8 @@ import { getDiscount } from './handler/get-discount.handler';
 import { getReport } from './handler/get-report.handler';
 import { setDiscount } from './handler/set-discount.handler';
 
+// const util = require('util');
+
 const app = express();
 const port = 8080; // default port to listen
 

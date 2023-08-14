@@ -9,18 +9,20 @@ interface GetCustomerInput {
 }
 
 export async function login(input: GetCustomerInput): Promise<Customer> {
-    // Increase the login count
     LOGIN_COUNT += 1;
+    console.log(`Login Count: ${LOGIN_COUNT}`);
 
     const customer: Customer = {
         id: input.customerId
     };
 
     if (LOGIN_COUNT % NEXT_DISCOUNT.numberOfLogins === 0) {
+        console.log(`Issuing a discount to ${input.customerId}.`)
         customer['discount'] = {
             code: NEXT_DISCOUNT.discountCode
         };
     };
+    console.log(`Storing ${JSON.stringify(customer, null, 2)}.`)
     CUSTOMERS.set(input.customerId, customer)
     
     return CUSTOMERS.get(input.customerId)!;

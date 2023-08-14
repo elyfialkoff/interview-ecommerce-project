@@ -1,4 +1,4 @@
-import { TRANSACTIONS, TRANSACTIONS_WITH_DISCOUNT } from "../data/transaction.data";
+import { TRANSACTIONS } from "../data/transaction.data";
 import { CUSTOMERS, getCustomer } from "../data/customer.data";
 import { Customer } from "../interface/customer.interface";
 import { Transaction } from "../interface/transaction.interface";
@@ -24,9 +24,6 @@ export async function transaction(input: TransactionInput): Promise<any> {
     TRANSACTIONS.push(transaction)
 
     if (input.discountCode) {
-        // For reporting, add transaction record, with discount used, to database
-        TRANSACTIONS_WITH_DISCOUNT.push(transaction);
-        
         // Remove discount code from customer record
         CUSTOMERS.set(input.customerId, {
             id: input.customerId,
