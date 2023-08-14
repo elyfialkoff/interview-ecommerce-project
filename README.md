@@ -45,7 +45,7 @@ A Customer can make a `POST` request to `/transaction` with a body to purchase s
 
 Sample Requests
 Admin Create Discount
-- `curl -X POST http://localhost:8080/discount -H "Content-Type: application/json" -d '{"n": 2, "code": "test-code"}'`
+- `curl -X POST http://localhost:8080/discount -H "Content-Type: application/json" -d '{"nthTransaction": 2, "discountCode": "test-code"}'`
 
 Admin Get Report.
 - `curl http://localhost:8080/report`
