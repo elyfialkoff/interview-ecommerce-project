@@ -1,6 +1,4 @@
 import { TRANSACTIONS } from "../data/transaction.data";
-import { CUSTOMERS, getCustomer } from "../data/customer.data";
-import { Customer } from "../interface/customer.interface";
 import { Transaction } from "../interface/transaction.interface";
 import { Message } from "../interface/message.interface";
 import { DISCOUNT } from "./discount.handler";
