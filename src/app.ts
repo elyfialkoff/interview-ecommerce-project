@@ -35,7 +35,7 @@ app.get("/report",  async (req, res) => {
 
 app.post("/discount",  async (req, res) => {
     //  parameters: n: string, code: string
-    res.send(await setDiscount({nthTransaction: req.body.n, discountCode: req.body.code}));
+    res.send(await setDiscount({nthTransaction: req.body.nthTransaction, discountCode: req.body.discountCode}));
 });
 
 // start the Express server

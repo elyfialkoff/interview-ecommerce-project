@@ -1,9 +1,9 @@
 # symetra-project
 
-#### Install Packaged
+#### Install Packages
 `npm i`
 
-#### Build
+#### Build Application
 `npm run build`
 
 #### Start Server
@@ -16,18 +16,22 @@
 - `GET /discount`
 
 - `POST /transaction`
-body: {
-    customerId: string;
-    items: string[];
-    discountCode: string; // optional
+```javascript
+{
+    "customerId": string;
+    "items": string[];
+    "discountCode": string; // optional
 }
+```
 
 ##### Admin Endpoints
 - `POST /discount`
-body: {
-    n: number;
-    code: string;
+```javascript
+{
+    "nthTransaction": number;
+    "discountCode": string;
 }
+```
 
 - `GET /report`
 
