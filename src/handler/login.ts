@@ -1,6 +1,6 @@
 import { CUSTOMERS } from "../data/customer.data";
 import { Customer } from "../interface/customer.interface";
-import { NEXT_DISCOUNT } from "./set-discount.handler";
+import { DISCOUNT } from "./discount.handler";
 
 export let LOGIN_COUNT: number = 0;
 
@@ -16,11 +16,12 @@ export async function login(input: GetCustomerInput): Promise<Customer> {
         id: input.customerId
     };
 
-    if (LOGIN_COUNT % NEXT_DISCOUNT.numberOfLogins === 0) {
+    if (LOGIN_COUNT % DISCOUNT.nthTransaction === 0) {
         console.log(`Issuing a discount to ${input.customerId}.`)
         customer['discount'] = {
+            nthTransaction: 0,
             isActive: true,
-            code: NEXT_DISCOUNT.discountCode
+            discountCode: DISCOUNT.discountCode
         };
     };
     console.log(`Storing ${JSON.stringify(customer, null, 2)}.`)

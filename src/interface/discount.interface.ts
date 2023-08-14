@@ -1,4 +1,5 @@
 export interface Discount {
+    nthTransaction: number;
     isActive: boolean;
-    code: string;
+    discountCode: string;
 }

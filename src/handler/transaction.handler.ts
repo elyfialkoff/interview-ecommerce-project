@@ -12,7 +12,7 @@ interface TransactionInput {
 export async function transaction(input: TransactionInput): Promise<any> {
     // Get Customer and validate discount code
     const customer: Customer = getCustomer(input.customerId);
-    if (input.discountCode && customer.discount && customer.discount.code != input.discountCode) {
+    if (input.discountCode && customer.discount && customer.discount.discountCode != input.discountCode) {
         throw new Error(`Discount code is not valid.`);
     };
 
