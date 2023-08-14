@@ -1,9 +1,8 @@
 import express  from 'express';
-import { login } from './handler/login';
+import { login } from './handler/login.handler';
 import { transaction } from './handler/transaction.handler';
-import { getDiscount } from './handler/get-discount.handler';
-import { getReport } from './handler/get-report.handler';
-import { setDiscount } from './handler/set-discount.handler';
+import { getReport } from './handler/report.handler';
+import { setDiscount, getDiscount } from './handler/discount.handler';
 
 // const util = require('util');
 
@@ -23,8 +22,8 @@ app.post("/transaction", async (req, res) => {
     res.send(await transaction(req.body));
 });
 
-app.get("/customer/:customerId/discount",  async (req, res) => {
-    res.send(await getDiscount({customerId: req.params.customerId}));
+app.get("/discount",  async (req, res) => {
+    res.send(await getDiscount());
     // return a Discount
 });
 
@@ -36,7 +35,7 @@ app.get("/report",  async (req, res) => {
 
 app.post("/discount",  async (req, res) => {
     //  parameters: n: string, code: string
-    res.send(await setDiscount({numberOfLogins: req.body.n, discountCode: req.body.code}));
+    res.send(await setDiscount({nthTransaction: req.body.n, discountCode: req.body.code}));
 });
 
 // start the Express server

@@ -1,3 +1,5 @@
 export interface Discount {
-    code: string;
+    nthTransaction?: number;
+    isActive: boolean;
+    discountCode?: string;
 }
