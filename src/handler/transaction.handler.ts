@@ -27,8 +27,11 @@ export async function transaction(input: TransactionInput): Promise<Message> {
     if (DISCOUNT.nthTransaction && TRANSACTIONS.length % DISCOUNT.nthTransaction === 0) {
         DISCOUNT.isActive = true;
     }
+    if (discountUsed) {
+        DISCOUNT.isActive = false;
+    }
 
-    let message = `Transaction complete ${discountUsed ? `with a discount code.` : `with not discounts applied.`}` ;
+    let message = `Transaction complete ${discountUsed ? `with a discount code.` : `without any discounts codes.`}` ;
 
     return {
         message: message
