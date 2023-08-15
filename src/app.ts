@@ -1,6 +1,6 @@
 import express  from 'express';
 import { login } from './handler/login.handler';
-import { transaction } from './handler/transaction.handler';
+import { createTransaction } from './handler/transaction.handler';
 import { getReport } from './handler/report.handler';
 import { setDiscount, getDiscount } from './handler/discount.handler';
 
@@ -14,27 +14,22 @@ app.use(express.json())
 // Defines the available routes for  Customers
 app.post("/login/:customerId", async (req,  res) => {
     res.send(await login({customerId: req.params.customerId}));
-    // return a Discount
 });
 
 app.post("/transaction", async (req, res) => {
-    // parameters: item[], discountCode
-    res.send(await transaction(req.body));
+    res.send(await createTransaction(req.body));
 });
 
 app.get("/discount",  async (req, res) => {
     res.send(await getDiscount());
-    // return a Discount
 });
 
 // Defines the  available routes for the Admin
 app.get("/report",  async (req, res) => {
     res.send(await getReport());
-    // return purchaseCount, discountCount
 });
 
 app.post("/discount",  async (req, res) => {
-    //  parameters: n: string, code: string
     res.send(await setDiscount({nthTransaction: req.body.nthTransaction, discountCode: req.body.discountCode}));
 });
 

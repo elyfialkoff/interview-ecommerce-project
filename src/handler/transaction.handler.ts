@@ -9,7 +9,7 @@ interface TransactionInput {
     discountCode?: string;
 };
 
-export async function transaction(input: TransactionInput): Promise<Message> {
+export async function createTransaction(input: TransactionInput): Promise<Message> {
     // Validate and Use Discount:
     let discountUsed = false
     if (DISCOUNT.isActive && DISCOUNT.discountCode === input.discountCode) {
