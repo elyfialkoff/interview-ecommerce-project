@@ -10,9 +10,13 @@ interface TransactionInput {
 };
 
 export async function createTransaction(input: TransactionInput): Promise<Message> {
+    console.log(`transaction.createTransaction`);
+    if (process.env.DEBUG) console.log(`Input: ${JSON.stringify(input, null, 2)}`);
+
     // Validate and Use Discount:
     let discountUsed = false
     if (DISCOUNT.isActive && DISCOUNT.discountCode === input.discountCode) {
+        if (process.env.DEBUG) console.log(`Using Discount`);
         discountUsed = true;
     }
 
@@ -22,13 +26,17 @@ export async function createTransaction(input: TransactionInput): Promise<Messag
         discountUsed: discountUsed
     }
     TRANSACTIONS.push(transaction)
+    if (process.env.DEBUG) console.log(`Transaction: ${JSON.stringify(transaction, null, 2)}`);
 
     // Update Discount:
     if (DISCOUNT.nthTransaction && TRANSACTIONS.length % DISCOUNT.nthTransaction === 0) {
         DISCOUNT.isActive = true;
+        if (process.env.DEBUG) console.log(`Activating Discount: ${JSON.stringify(DISCOUNT, null, 2)}`);
     }
+    
     if (discountUsed) {
         DISCOUNT.isActive = false;
+        if (process.env.DEBUG) console.log(`Resetting Discount: ${JSON.stringify(DISCOUNT, null, 2)}`);
     }
 
     let message = `Transaction complete ${discountUsed ? `with a discount code.` : `without any discounts codes.`}` ;
