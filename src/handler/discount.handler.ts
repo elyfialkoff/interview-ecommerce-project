@@ -9,13 +9,14 @@ interface SetDiscountInput {
 };
 
 export async function setDiscount(input: SetDiscountInput): Promise<Message> {
-    console.log(`Setting discount with input values: ${JSON.stringify(input, null, 2)}`);
+    console.log(`discount.setDiscount`);
+    if (process.env.DEBUG) console.log(`Input: ${JSON.stringify(input, null, 2)}`);
     DISCOUNT = {
         nthTransaction: input.nthTransaction,
         isActive: false,
         discountCode: input.discountCode
     };
-    console.log(`Creating discount: ${JSON.stringify(DISCOUNT, null, 2)}`);
+    if (process.env.DEBUG) console.log(`DISCOUNT: ${JSON.stringify(DISCOUNT, null, 2)}`);
 
     return {
         message: 'Discount successfully set'
@@ -23,6 +24,8 @@ export async function setDiscount(input: SetDiscountInput): Promise<Message> {
 }
 
 export async function getDiscount(): Promise<Discount> {
+    console.log(`discount.getDiscount`);
+
     const discount: Discount = {
         isActive: DISCOUNT.isActive
     };
@@ -30,6 +33,8 @@ export async function getDiscount(): Promise<Discount> {
     if (DISCOUNT.isActive) {
         discount.discountCode = DISCOUNT.discountCode
     };
+
+    if (process.env.DEBUG) console.log(`DISCOUNT: ${JSON.stringify(DISCOUNT, null, 2)}`);
 
     return discount;
 }
